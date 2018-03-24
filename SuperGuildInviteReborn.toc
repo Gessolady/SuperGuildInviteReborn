@@ -1,0 +1,30 @@
+## Interface: 70300
+## Author: Janniie - Stormreaver EU
+## Updated by: Snowenn - Zul'jin US
+## Title: Super Guild Invite Reborn
+## Notes: Version 7.7.0
+## Version: 7.7.0
+## SavedVariables: SGI_DATA
+## SavedVariablesPerCharacter: SGI_BACKUP
+
+libs\GuildShield\GuildShield.lua
+libs\ChatIntercept\ChatIntercept.lua
+libs\Alerts\Alerts.lua
+
+libs\LibWho-2.0\libs\LibStub\LibStub.lua
+libs\LibWho-2.0\libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+libs\LibWho-2.0\LibWho-2.0\LibWho-2.0.lua
+
+locale\localization.lua
+
+core\SGI_Constants.lua
+core\SGI_Core.lua
+
+core\SGI_Blacklist.lua
+core\SGI_AddOn_Message.lua
+core\SGI_Filter.lua
+core\SuperScan.lua
+core\SGI_System_Message.lua
+core\SGI_Events.lua
+
+core\SGI_GUI.lua
