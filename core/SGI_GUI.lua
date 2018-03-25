@@ -756,7 +756,9 @@ local function CreateFilterFrame()
 			SGI.L["Tauren"],
 			SGI.L["Pandaren"],
 			SGI.L["Highmountain Tauren"],
-			SGI.L["Nightborne"]
+			SGI.L["Nightborne"],
+			SGI.L["Mag'har Orc"],
+			SGI.L["Zandalari Troll"],
 		}
 	else
 		Races = {
@@ -768,8 +770,9 @@ local function CreateFilterFrame()
 			SGI.L["Night Elf"],
 			SGI.L["Gnome"],
 			SGI.L["Pandaren"],
-			SGI.L["Void Elf"].
-			SGI.L["Lightforged Draenei"]
+			SGI.L["Void Elf"],
+			SGI.L["Lightforged Draenei"],
+			SGI.L["Dark Iron Dwarf"],
 		}
 	end
 
