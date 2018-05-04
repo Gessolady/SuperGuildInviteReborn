@@ -1691,8 +1691,8 @@ local function CreateMinimapButton()
 	f:SetMovable(true)
 	SetFramePosition(f)
 
-	f:SetNormalTexture("Interface\\AddOns\\SuperGuildInvite2\\media\\SGI_MiniMapButton")
-	f:SetPushedTexture("Interface\\AddOns\\SuperGuildInvite2\\media\\SGI_MiniMapButtonPushed")
+	f:SetNormalTexture("Interface\\AddOns\\SuperGuildInviteReborn\\media\\SGI_MiniMapButton")
+	f:SetPushedTexture("Interface\\AddOns\\SuperGuildInviteReborn\\media\\SGI_MiniMapButtonPushed")
 	f:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight")
 
 	local tooltip = CreateFrame("Frame","SGI_TooltTipMini",f,"GameTooltipTemplate")
