@@ -7,12 +7,12 @@ SLASH_SUPERGUILDINVITE2 = "/superguildinvite";
 SGI_DATA_INDEX = UnitName("player").." - "..GetRealmName() or "?";
 SGI.VERSION_ALERT_COOLDOWN = false;
 
-SGI_MAX_LEVEL_SUPER_SCAN = 110;
+SGI_MAX_LEVEL_SUPER_SCAN = 120;
 SGI_BREAK_POINT_SUPER_SCAN = 90;
 SGI_MIN_LEVEL_SUPER_SCAN = 1;
 
 -- Version realted
-SGI.VERSION_MAJOR = "7.7";
+SGI.VERSION_MAJOR = "8.0";
 SGI.VERSION_MINOR = ".0";
 SGI.versionChanges = {
 	version = "Version |cff55EE55"..SGI.VERSION_MAJOR..SGI.VERSION_MINOR.."|r",
