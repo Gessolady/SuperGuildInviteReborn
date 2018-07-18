@@ -3,7 +3,7 @@ local L;
 
 function SGI:LoadLocale()
 	local Locale = GetLocale()
-	if SGI_Locale[Locale] then 
+	if SGI_Locale[Locale] then
 		SGI.L = SGI_Locale[Locale]
 		L = SGI.L;
 		SGI:print(L["English Locale loaded"]..L["Author"])
@@ -22,11 +22,11 @@ function SGI:FormatTime2(T)
 	H = floor(T/3600)
 	M = floor((T-3600*H)/60)
 	S = T-(3600*H + 60*M)
-		
+
 	if T <= 0 then
 		return L[" < 1 sec"]
 	end
-		
+
 	if H ~= 0 then
 		R =  R..H..L["h "]
 	end
@@ -36,7 +36,7 @@ function SGI:FormatTime2(T)
 	if S ~= 0 then
 		R = R..S..L["s"]
 	end
-	
+
 	return R
 end
 
@@ -46,11 +46,11 @@ function SGI:FormatTime(T)
 	H = floor(T/3600)
 	M = floor((T-3600*H)/60)
 	S = T-(3600*H + 60*M)
-	
+
 	if (T <= 0) then
 		return SGI.L[" < 1 sec"];
 	end
-	
+
 	if (H > 0) then
 		R = R..H..":";
 	end
@@ -68,10 +68,10 @@ function SGI:FormatTime(T)
 	elseif (S == 0) then
 		R = R.."00";
 	end
-	
+
 	return R;
 end
-		
+
 
 function SGI:CountTable(T)
 	local i = 0
@@ -93,11 +93,11 @@ function SGI:CompareVersions(V1, V2)
 	local p12 = tonumber(strsub(V1,strfind(V1,".",1,true)+1));
 	local p21 = tonumber(strsub(V2,1,strfind(V2,".",1,true)-1));
 	local p22 = tonumber(strsub(V2,strfind(V2,".",1,true)+1));
-	
+
 	if (p11 == p21) then
 		if (p22 > p12) then
 			return V2;
-		else 
+		else
 			return V1;
 		end
 	elseif (p21 > p11) then
@@ -140,7 +140,7 @@ function SlashCmdList.SUPERGUILDINVITE(msg)
 	if msg == "reset" then
 		local lock = SGI_DATA.lock
 		SGI_DATA = nil
-		SGI_EVENTS["ADDON_LOAD"]()
+		SGI_EVENTS["PLAYER_LOGIN"]()
 		SGI_DATA.lock = lock
 	elseif (msg == "framereset") then
 		if (reloadWarning) then

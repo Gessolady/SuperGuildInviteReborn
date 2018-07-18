@@ -1,19 +1,19 @@
 CreateFrame("Frame","SGI_EVENT_HANDLER");
 SGI_EVENTS = {};
 
-function SGI_EVENTS:ADDON_LOAD()
-	
-	
-	
+function SGI_EVENTS:PLAYER_LOGIN()
+
+
+
 	-- Index used to separate settings for different characters.
 	SGI_DATA_INDEX = UnitName("player").." - "..GetRealmName();
-	
+
 	-- Make sure the saved variables are correct.
 	--General settings:
 	if (type(SGI_DATA) ~= "table") then
 		SGI_DATA = {};
 	end
-	
+
 	-- Fix transition from 6.x to 7.x
 	SGI:ResetFix()
 	
@@ -26,7 +26,7 @@ function SGI_EVENTS:ADDON_LOAD()
 	if (type(SGI_DATA.guildList[GetRealmName()]) ~= "table") then
 		SGI_DATA.guildList[GetRealmName()] = {};
 	end
-	
+
 	--Character based settings.
 	if type(SGI_DATA[SGI_DATA_INDEX]) ~= "table" then
 		SGI_DATA[SGI_DATA_INDEX] = {}
@@ -51,12 +51,12 @@ function SGI_EVENTS:ADDON_LOAD()
 	if type(SGI_BACKUP) ~= "table" then
 		SGI_BACKUP = SGI_DATA.lock
 	end
-	
+
 	-- If there is a saved keybind, activate it.
 	if (SGI_DATA[SGI_DATA_INDEX].keyBind) then
 		SetBindingClick(SGI_DATA[SGI_DATA_INDEX].keyBind,"SGI_INVITE_BUTTON");
 	end
-	
+
 	-- Anti spam. Users of the AddOn GuildShield are ignored.
 	GuildShield:Initiate(SGI.RemoveShielded);
 	-- Load locale
@@ -66,7 +66,7 @@ function SGI_EVENTS:ADDON_LOAD()
 		SGI:ShowMinimapButton();
 	end
 	-- Activate the keybind, if any.
-	if (SGI_DATA[SGI_DATA_INDEX].keyBind) then	
+	if (SGI_DATA[SGI_DATA_INDEX].keyBind) then
 		SetBindingClick(SGI_DATA[SGI_DATA_INDEX].keyBind, "SGI_INVITE_BUTTON2");
 	end
 	--Debugging, used for development
@@ -100,9 +100,9 @@ function SGI_EVENTS:UPDATE_MOUSEOVER_UNIT()
 		local name = UnitName("mouseover");
 		local guild = GetGuildInfo("mouseover");
 		local realm = GetRealmName();
-		
+
 		if (not guild or guild == "") then return end
-		
+
 		if (type(SGI_DATA.guildList[realm][guild]) ~= "table") then
 			SGI_DATA.guildList[realm][guild] = {};
 		end
@@ -129,7 +129,7 @@ function SGI_EVENTS:CHAT_MSG_SYSTEM(event, ...)
 end
 
 
-for event,_ in pairs(SGI_EVENTS) do 
+for event,_ in pairs(SGI_EVENTS) do
 	SGI_EVENT_HANDLER:RegisterEvent(event);
 end
 

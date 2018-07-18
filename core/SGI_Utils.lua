@@ -5,11 +5,11 @@ function SGI:FormatTime(T)
 	H = floor(T/3600)
 	M = floor((T-3600*H)/60)
 	S = T-(3600*H + 60*M)
-		
+
 	if T <= 0 then
 		return L["less than 1 second"]
 	end
-		
+
 	if H ~= 0 then
 		R =  R..H..L[" hours "]
 	end
@@ -19,7 +19,7 @@ function SGI:FormatTime(T)
 	if S ~= 0 then
 		R = R..S..L[" seconds"]
 	end
-	
+
 	return R
 end
 
