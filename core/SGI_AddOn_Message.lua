@@ -7,14 +7,14 @@ local ID_LIVE_SYNC = "SGI_LIVE_SYNC";
 local ID_PING = "SGI_PING";
 local ID_PONG = "SGI_PONG";
 local ID_STOP = "SGI_STOP";
-RegisterAddonMessagePrefix(ID_REQUEST);
-RegisterAddonMessagePrefix(ID_LOCK);
-RegisterAddonMessagePrefix(ID_SHIELD);
-RegisterAddonMessagePrefix(ID_MASSLOCK);
-RegisterAddonMessagePrefix(ID_VERSION);
-RegisterAddonMessagePrefix(ID_LIVE_SYNC);
-RegisterAddonMessagePrefix(ID_PING);
-RegisterAddonMessagePrefix(ID_STOP);
+C_ChatInfo.RegisterAddonMessagePrefix(ID_REQUEST);
+C_ChatInfo.RegisterAddonMessagePrefix(ID_LOCK);
+C_ChatInfo.RegisterAddonMessagePrefix(ID_SHIELD);
+C_ChatInfo.RegisterAddonMessagePrefix(ID_MASSLOCK);
+C_ChatInfo.RegisterAddonMessagePrefix(ID_VERSION);
+C_ChatInfo.RegisterAddonMessagePrefix(ID_LIVE_SYNC);
+C_ChatInfo.RegisterAddonMessagePrefix(ID_PING);
+C_ChatInfo.RegisterAddonMessagePrefix(ID_STOP);
 
 
 function SGI:AddonMessage(event,...)
@@ -58,23 +58,23 @@ function SGI:AddonMessage(event,...)
 end
 
 function SGI:LiveSync(player)
-	SendAddonMessage(ID_LIVE_SYNC, player, "GUILD");
+	C_ChatInfo.SendAddonMessage(ID_LIVE_SYNC, player, "GUILD");
 end
 
 function SGI:BroadcastVersion(target)
 	if (target == "GUILD") then
-		SendAddonMessage(ID_VERSION, SGI.VERSION_MAJOR, "GUILD");
+		C_ChatInfo.SendAddonMessage(ID_VERSION, SGI.VERSION_MAJOR, "GUILD");
 	else
-		SendAddonMessage(ID_VERSION, SGI.VERSION_MAJOR, "WHISPER", target);
+		C_ChatInfo.SendAddonMessage(ID_VERSION, SGI.VERSION_MAJOR, "WHISPER", target);
 	end
 end
 
 function SGI:PingedByJanniie(sender)
-	SendAddonMessage("SGI_PONG", SGI.VERSION_MAJOR, "WHISPER", sender);
+	C_ChatInfo.SendAddonMessage("SGI_PONG", SGI.VERSION_MAJOR, "WHISPER", sender);
 end
 
 function SGI:RequestSync()
-	SendAddonMessage(ID_REQUEST, "", "GUILD");
+	C_ChatInfo.SendAddonMessage(ID_REQUEST, "", "GUILD");
 end
 
 

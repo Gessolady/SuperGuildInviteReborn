@@ -1,7 +1,7 @@
 CreateFrame("Frame","SGI_EVENT_HANDLER");
 SGI_EVENTS = {};
 
-function SGI_EVENTS:PLAYER_LOGIN()
+function SGI_EVENTS:ADDON_LOADED()
 	
 	
 	
