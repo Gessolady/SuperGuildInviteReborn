@@ -23,11 +23,11 @@
 
 
 
-RegisterAddonMessagePrefix("GUILD_SHIELD")
-RegisterAddonMessagePrefix("I_HAVE_SHIELD")
+C_ChatInfo.RegisterAddonMessagePrefix("GUILD_SHIELD")
+C_ChatInfo.RegisterAddonMessagePrefix("I_HAVE_SHIELD")
 
 local function IsShielded(self,player)
-	SendAddonMessage("GUILD_SHIELD","","WHISPER",player)
+	C_ChatInfo.SendAddonMessage("GUILD_SHIELD","","WHISPER",player)
 end
 
 local function Initiate(self,action)
@@ -50,7 +50,7 @@ f:RegisterEvent("CHAT_MSG_ADDON")
 f:SetScript("OnEvent",function(...)
 	local prefix,msg,channel,sender = select(3,...)
 	if prefix == "GUILD_SHIELD" and sender ~= UnitName("player") then
-		SendAddonMessage("I_HAVE_SHIELD","","WHISPER",sender)
+		C_ChatInfo.SendAddonMessage("I_HAVE_SHIELD","","WHISPER",sender)
 		print("|cffff8800Guild|r|cff00A2FFShield|r|cff55EE55 protected you from an invite (|r|cff00A2FF"..sender.."|r|cff55EE55)|r")
 		GuildShield.protects = GuildShield.protects + 1
 		GuildShield.lastSession = GuildShield.lastSession + 1
