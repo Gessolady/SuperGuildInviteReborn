@@ -58,23 +58,23 @@ function SGI:AddonMessage(event,...)
 end
 
 function SGI:LiveSync(player)
-	C_ChatInfo.SendAddonMessage(ID_LIVE_SYNC, player, "GUILD");
+	C_ChatInfo.SendAddonMessageLogged(ID_LIVE_SYNC, player, "GUILD");
 end
 
 function SGI:BroadcastVersion(target)
 	if (target == "GUILD") then
-		C_ChatInfo.SendAddonMessage(ID_VERSION, SGI.VERSION_MAJOR, "GUILD");
+		C_ChatInfo.SendAddonMessageLogged(ID_VERSION, SGI.VERSION_MAJOR, "GUILD");
 	else
-		C_ChatInfo.SendAddonMessage(ID_VERSION, SGI.VERSION_MAJOR, "WHISPER", target);
+		C_ChatInfo.SendAddonMessageLogged(ID_VERSION, SGI.VERSION_MAJOR, "WHISPER", target);
 	end
 end
 
 function SGI:PingedByJanniie(sender)
-	C_ChatInfo.SendAddonMessage("SGI_PONG", SGI.VERSION_MAJOR, "WHISPER", sender);
+	C_ChatInfo.SendAddonMessageLogged("SGI_PONG", SGI.VERSION_MAJOR, "WHISPER", sender);
 end
 
 function SGI:RequestSync()
-	C_ChatInfo.SendAddonMessage(ID_REQUEST, "", "GUILD");
+	C_ChatInfo.SendAddonMessageLogged(ID_REQUEST, "", "GUILD");
 end
 
 

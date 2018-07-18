@@ -14,7 +14,7 @@ libs\Alerts\Alerts.lua
 libs\LibWho-2.0\libs\LibStub\LibStub.lua
 libs\LibWho-2.0\libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
 libs\LibWho-2.0\LibWho-2.0\LibWho-2.0.lua
-
+libs\LibSharedMedia-3.0\LibSharedMedia-3.0\LibSharedMedia-3.0.lua
 locale\localization.lua
 
 core\SGI_Constants.lua

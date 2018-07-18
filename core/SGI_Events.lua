@@ -1,7 +1,7 @@
 CreateFrame("Frame","SGI_EVENT_HANDLER");
 SGI_EVENTS = {};
 
-function SGI_EVENTS:ADDON_LOADED()
+function SGI_EVENTS:PLAYER_LOGIN()
 	
 	
 	
@@ -117,7 +117,7 @@ function SGI_EVENTS:UPDATE_MOUSEOVER_UNIT()
 end
 
 function SGI_EVENTS:PLAYER_LOGOUT()
-	SendAddonMessage("SGI_STOP", "", "GUILD");
+	C_ChatInfo.SendAddonMessage("SGI_STOP", "", "GUILD");
 end
 
 function SGI_EVENTS:CHAT_MSG_ADDON(event, ...)
