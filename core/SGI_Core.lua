@@ -140,7 +140,7 @@ function SlashCmdList.SUPERGUILDINVITE(msg)
 	if msg == "reset" then
 		local lock = SGI_DATA.lock
 		SGI_DATA = nil
-		SGI_EVENTS["ADDON_LOADED"]()
+		SGI_EVENTS["PLAYER_LOGIN"]()
 		SGI_DATA.lock = lock
 	elseif (msg == "framereset") then
 		if (reloadWarning) then
