@@ -1,9 +1,7 @@
 CreateFrame("Frame","SGI_EVENT_HANDLER");
 SGI_EVENTS = {};
 
-function SGI_EVENTS:PLAYER_LOGIN()
-
-
+function SGI_EVENTS:ADDON_LOADED()
 
 	-- Index used to separate settings for different characters.
 	SGI_DATA_INDEX = UnitName("player").." - "..GetRealmName();
@@ -16,7 +14,7 @@ function SGI_EVENTS:PLAYER_LOGIN()
 
 	-- Fix transition from 6.x to 7.x
 	SGI:ResetFix()
-	
+
 	if (type(SGI_DATA.lock) ~= "table") then
 		SGI_DATA.lock = {};
 	end
