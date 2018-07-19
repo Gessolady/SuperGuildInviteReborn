@@ -1,4 +1,6 @@
 # SuperGuildInviteReborn
 Repository for addon hosted at:
-https://wow.curseforge.com/projects/superguildinvite-reborn
-https://www.wowinterface.com/downloads/info24080-SuperGuildInvite2.html#info
+[CurseForge](https://wow.curseforge.com/projects/superguildinvite-reborn)  
+and also at [WoWInterface](https://www.wowinterface.com/downloads/info24080-SuperGuildInvite2.html#info)  
+You can find updated GuildShield at
+[GuildShield](https://github.com/Elfmagi/GuildShield)
