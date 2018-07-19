@@ -94,7 +94,7 @@ function SGI:SystemMessage(event,_,message,...)
 	elseif (type == "already") then
 		SGI:LockPlayer(name);
 		SGI:UnregisterForWhisper(name);
-	elseif (type == "join") then
+--[[	elseif (type == "join") then
 
 		if (CanEditOfficerNote()) then
 			for i = 1,GetNumGuildMembers() do
@@ -111,7 +111,7 @@ function SGI:SystemMessage(event,_,message,...)
 				end
 			end
 		end
-
+]]-- Optional, could cause disconnects if large guild.
 	elseif (type == "miss") then
 		if (SGI:IsSharing(name)) then
 			SGI:StopMassShare(name);

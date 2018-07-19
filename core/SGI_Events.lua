@@ -72,9 +72,9 @@ function SGI_EVENTS:ADDON_LOADED()
 	--Tell guildies what version you're running
 	-- SGI:BroadcastVersion("GUILD"); legacy
 	--Request lock sync from guildies
-	SGI:RequestSync();
+	--SGI:RequestSync();
 	--Remove locks that are > 2 months old
-	SGI:RemoveOutdatedLocks();
+	--SGI:RemoveOutdatedLocks();
 	--Chat Intercept
 	ChatIntercept:StateSystem(SGI_DATA[SGI_DATA_INDEX].settings.checkBox["CHECKBOX_HIDE_SYSTEM"]);
 	ChatIntercept:StateWhisper(SGI_DATA[SGI_DATA_INDEX].settings.checkBox["CHECKBOX_HIDE_WHISPER"]);
