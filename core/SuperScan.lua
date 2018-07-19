@@ -184,7 +184,7 @@ local raceClassCombos = {
 			"Shaman",
 			"Warrior",
 			"Monk",
-		},	
+		},
 	},
 }
 
@@ -266,7 +266,7 @@ end)
 SGI_WHISPER_QUEUE_FRAME.t = 0;
 SGI_WHISPER_QUEUE_FRAME:SetScript("OnUpdate", function()
 	if (SGI_WHISPER_QUEUE_FRAME.t < GetTime()) then
-	
+
 		for k,_ in pairs(whisperQueue) do
 			if (whisperQueue[k].t < GetTime()) then
 				ChatIntercept:InterceptNextWhisper();
@@ -274,9 +274,9 @@ SGI_WHISPER_QUEUE_FRAME:SetScript("OnUpdate", function()
 				whisperQueue[k] = nil;
 			end
 		end
-	
+
 		SGI_WHISPER_QUEUE_FRAME.t = GetTime() + 0.5;
-		
+
 	end
 end)
 
@@ -285,29 +285,29 @@ local function ValidateName(player)
 	-- Lock
 	-- filter
 	-- guild list
-	
+
 	if (SGI_DATA.lock[player.name]) then
 		return false;
 	end
-	
+
 	if (SGI_DATA.guildList[GetRealmName()][player.name]) then
 		return false;
 	end
-	
+
 	if (SGI_DATA[SGI_DATA_INDEX].settings.checkBox["CHECKBOX_ENABLE_FILTERS"] and not SGI:FilterPlayer(player)) then
 		return false;
 	end
-	
+
 	return true;
 end
 
 local function TrimRealmName(name)
 	if (type(name) ~= "string") then SGI:debug("TrimRealmName: No name!") return end
-	
+
 	local myRealm = GetRealmName();
-	
+
 	if (type(myRealm) ~= "string") then SGI:debug("TrimRealmName: No realmName!") return end
-	
+
 	if (strfind(name, myRealm)) then
 		if (strfind(name, "-")) then
 			local n = strsub(name,1,strfind(name,"-")-1);
@@ -321,26 +321,26 @@ local function WhoResultCallback(query, results, complete)
 	if (whoSent) then
 		whoSent = false;
 		SGI:debug("...got reply");
-		
+
 		flags = oldFlags;
-		
+
 		superScanProgress = superScanProgress + 1;
 		local ETR = (#whoQueryList - superScanProgress + 1) * superScanIntervalTime;
 		if (SuperScanFrame) then
 			SuperScanFrame.ETR = ETR;
 			SuperScanFrame.lastETR = GetTime();
 		end
-		
+
 		local numResults = 0;
-		
+
 		for _, result in pairs(results) do
 			amountScanned = amountScanned + 1;
 			numResults = numResults + 1;
-			
+
 			result.Name = TrimRealmName(result.Name);
-			
+
 			SGI:BroadcastVersion(result.Name)
-			
+
 			if (result.Guild == "") then
 				local player = {
 					name = result.Name,
@@ -385,9 +385,9 @@ local function CreateSuperScanQuery(start, stop, interval, class, race)
 		class = 999;
 		race = 999;
 	end
-	
+
 	local SGI_BREAK_POINT_SUPER_SCAN = 90;
-	
+
 	whoQueryList = {};
 	local current = start;
 	local Classes = {
@@ -426,10 +426,10 @@ local function CreateSuperScanQuery(start, stop, interval, class, race)
 			SGI.L["Pandaren"],
 		}
 	end
-	
+
 	if (start < SGI_BREAK_POINT_SUPER_SCAN) then
 		while (current + interval < ( (SGI_BREAK_POINT_SUPER_SCAN > stop) and stop or SGI_BREAK_POINT_SUPER_SCAN)) do
-		
+
 			if (current + interval >= race and current + interval >= class) then
 				for k,_ in pairs(raceClassCombos[UnitFactionGroup("player")]) do
 					for j,_ in pairs(raceClassCombos[UnitFactionGroup("player")][k]) do
@@ -437,7 +437,7 @@ local function CreateSuperScanQuery(start, stop, interval, class, race)
 					end
 				end
 			elseif (current + interval >= race) then
-				for k, _ in pairs(Races) do 
+				for k, _ in pairs(Races) do
 					tinsert(whoQueryList, current.."- -"..(current + interval - 1).." r-"..Races[k]);
 				end
 			elseif (current + interval >= class) then
@@ -447,10 +447,10 @@ local function CreateSuperScanQuery(start, stop, interval, class, race)
 			else
 				tinsert(whoQueryList, current.."- -"..(current + interval - 1));
 			end
-			
+
 			current = current + interval;
 		end
-		
+
 		if ( current < ( (SGI_BREAK_POINT_SUPER_SCAN > stop) and stop or SGI_BREAK_POINT_SUPER_SCAN ) ) then
 			local t_stop = (SGI_BREAK_POINT_SUPER_SCAN > stop) and stop or SGI_BREAK_POINT_SUPER_SCAN;
 			if (t_stop >= race and t_stop >= class) then
@@ -460,7 +460,7 @@ local function CreateSuperScanQuery(start, stop, interval, class, race)
 					end
 				end
 			elseif (t_stop >= race) then
-				for k, _ in pairs(Races) do 
+				for k, _ in pairs(Races) do
 					tinsert(whoQueryList, current.."- -"..(t_stop).." r-"..Races[k]);
 				end
 			elseif (t_stop >= class) then
@@ -474,8 +474,8 @@ local function CreateSuperScanQuery(start, stop, interval, class, race)
 		end
 	end
 	if (stop < current) then return end;
-	
-	while (current <= stop) do 
+
+	while (current <= stop) do
 		if (current >= race and current >= class) then
 			for k,_ in pairs(raceClassCombos[UnitFactionGroup("player")]) do
 				for j,_ in pairs(raceClassCombos[UnitFactionGroup("player")][k]) do
@@ -487,7 +487,7 @@ local function CreateSuperScanQuery(start, stop, interval, class, race)
 				tinsert(whoQueryList, current.." r-"..Races[k]);
 			end
 		elseif (current >= class) then
-			for k,_ in pairs(Classes) do 
+			for k,_ in pairs(Classes) do
 				tinsert(whoQueryList, current.." c-"..Classes[k]);
 			end
 		else
@@ -508,7 +508,7 @@ local function ResetSuperScan()
 	race = SGI_DATA[SGI_DATA_INDEX].settings.raceStart;
 	class = SGI_DATA[SGI_DATA_INDEX].settings.classStart;
 	interval = SGI_DATA[SGI_DATA_INDEX].settings.interval;
-	
+
 	amountGuildless = 0;
 	sessionTotal = sessionTotal + amountScanned;
 	amountScanned = 0;
@@ -520,17 +520,17 @@ function SGI:StartSuperScan()
 	if (not CanResume()) then
 		ResetSuperScan();
 	end
-	
+
 	if (SuperScanFrame) then
 		SuperScanFrame.lastETR = GetTime();
 	end
-	
+
 	scanInProgress = true;
 	SGI_SUPER_SCAN:SetScript("OnUpdate", SuperScan);
 end
 
 function SGI:StopSuperScan()
-	
+
 	scanInProgress = false;
 	SGI_SUPER_SCAN:SetScript("OnUpdate", nil);
 	SGI:debug(FriendsFrame:IsShown());
@@ -542,12 +542,12 @@ function SGI:RemoveQueued(name)
 	SGI:LockPlayer(name);
 	SGI_QUEUE[name] = nil;
 	SGI_ANTI_SPAM[name] = nil;
-	
+
 	local nameTrim = TrimRealmName(name);
-	
+
 	SGI_ANTI_SPAM[nameTrim] = nil
 	SGI_QUEUE[nameTrim] = nil;
-	
+
 	SGI:debug("RemoveQueued(name) removed "..nameTrim);
 end
 
@@ -575,39 +575,39 @@ function SGI:SendGuildInvite(button)
 	local name = self.player
 	if not name then name = next(SGI_QUEUE) button = "LeftButton" end
 	if not name then return end
-	
+
 	if (SGI:IsLocked(name)) then
 		SGI:RemoveQueued(name);
 		return;
 	end
-	
+
 	if (UnitIsInMyGuild(name)) then
 		SGI:LockPlayer(name);
 		SGI:RemoveQueued(name);
 		return;
 	end
-	
+
 	if (button == "LeftButton") then
-		
+
 		if (SGI_DATA[SGI_DATA_INDEX].settings.dropDown["DROPDOWN_INVITE_MODE"] == 1) then
-			
+
 			GuildInvite(name);
 			SGI:LockPlayer(name);
 			--SGI:print("Only Invite: "..name);
-			
+
 		elseif (SGI_DATA[SGI_DATA_INDEX].settings.dropDown["DROPDOWN_INVITE_MODE"] == 2) then
-			
+
 			GuildInvite(name);
 			SGI:RegisterForWhisper(name);
 			SGI:LockPlayer(name);
 			--SGI:print("Invite, then whisper: "..name);
-		
+
 		elseif (SGI_DATA[SGI_DATA_INDEX].settings.dropDown["DROPDOWN_INVITE_MODE"] == 3) then
-			
+
 			SGI:SendWhisper(SGI:FormatWhisper(SGI:PickRandomWhisper(), name), name, 4);
 			SGI:LockPlayer(name);
 			--SGI:print("Only whisper: "..name);
-		
+
 		else
 			SGI:print(SGI.L["You need to specify the mode in which you wish to invite"])
 			SGI:print(SGI.L["Go to Options and select your Invite Mode"])
@@ -615,20 +615,20 @@ function SGI:SendGuildInvite(button)
 		GuildShield:IsShielded(name);
 		SGI:LiveSync(name)
 	end
-	
+
 	SGI:RemoveQueued(name);
 end
 
 function SGI:RemoveShielded(player)
 	SGI:debug(player);
 	if (not player) then  SGI:debug("Error: No player name provided!") return end
-	
+
 	local playerTrim = TrimRealmName(player);
-	
+
 	SGI_ANTI_SPAM[playerTrim] = nil
 	SGI_QUEUE[playerTrim] = nil;
 	SGI:LockPlayer(playerTrim);
-	
+
 	SGI_ANTI_SPAM[player] = nil
 	SGI_QUEUE[player] = nil;
 	SGI:LockPlayer(player);

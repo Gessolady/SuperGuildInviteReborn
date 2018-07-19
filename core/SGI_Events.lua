@@ -115,7 +115,7 @@ function SGI_EVENTS:UPDATE_MOUSEOVER_UNIT()
 end
 
 function SGI_EVENTS:PLAYER_LOGOUT()
-	C_ChatInfo.SendAddonMessage("SGI_STOP", "", "GUILD");
+	 C_ChatInfo.SendAddonMessageLogged("SGI_STOP", "", "GUILD");
 end
 
 function SGI_EVENTS:CHAT_MSG_ADDON(event, ...)

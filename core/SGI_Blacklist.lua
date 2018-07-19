@@ -5,10 +5,10 @@ CreateFrame("Frame", "SGI_MESSAGE_TIMER");
 SGI_MESSAGE_TIMER.update = 0;
 SGI_MESSAGE_TIMER:SetScript("OnUpdate", function()
 	if (SGI_MESSAGE_TIMER.update < GetTime()) then
-		
+
 		for i = 1,5 do
 			local key, messageToBeSent = next(MessageQueue);
-		
+
 			if (key and messageToBeSent) then
 				if (SGI.ForceStop[messageToBeSent.receiver]) then
 					MessageQueue[key] = nil;
@@ -16,10 +16,10 @@ SGI_MESSAGE_TIMER:SetScript("OnUpdate", function()
 					SGI:debug("Forced sendstop!");
 					return;
 				end
-				SendAddonMessage(ID_MASSLOCK, messageToBeSent.msg, "WHISPER", messageToBeSent.receiver);
+				 C_ChatInfo.SendAddonMessageLogged(ID_MASSLOCK, messageToBeSent.msg, "WHISPER", messageToBeSent.receiver);
 				MessageQueue[key] = nil;
 				SGI:debug("Send AddonMessage ("..messageToBeSent.msg..") to "..messageToBeSent.receiver);
-			
+
 			end
 		end
 		SGI_MESSAGE_TIMER.update = GetTime() + 2;
@@ -66,7 +66,7 @@ end
 
 function SGI:ShareLocks(name)
 	local part = ID_MASSLOCK;
-	
+
 	for k,_ in pairs(SGI_DATA.lock) do
 		if (strlen(part..":"..k) > 250) then
 			AddMessage(part, name);
@@ -74,13 +74,13 @@ function SGI:ShareLocks(name)
 		end
 		part = part..":"..k;
 	end
-	
+
 	AddMessage(part, name);
 end
 
 function SGI:ReceivedNewLocks(rawLocks)
 	local locks = SGI:divideString(rawLocks, ":");
-	
+
 	for k,_ in pairs(locks) do
 		SGI:LockPlayer(locks[k]);
 	end
@@ -89,13 +89,13 @@ end
 
 function SGI:RemoveOutdatedLocks()
 	local month = tonumber(date("%m"));
-	
+
 	for k,_ in pairs(SGI_DATA.lock) do
 		if (month - 1) > SGI_DATA.lock[k] or (month < SGI_DATA.lock[k] and month > 1) then
 			RemoveLock(k);
 		end
 	end
-	
+
 end
 
 
