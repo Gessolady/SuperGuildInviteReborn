@@ -6,15 +6,7 @@
 ## Version: 8.0.0
 ## SavedVariables: SGI_DATA
 ## SavedVariablesPerCharacter: SGI_BACKUP
-
-libs\GuildShield\GuildShield.lua
-libs\ChatIntercept\ChatIntercept.lua
-libs\Alerts\Alerts.lua
-
-libs\LibWho-2.0\libs\LibStub\LibStub.lua
-libs\LibWho-2.0\libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
-libs\LibWho-2.0\LibWho-2.0\LibWho-2.0.lua
-locale\localization.lua
+embeds.xml
 
 core\SGI_Constants.lua
 core\SGI_Core.lua
