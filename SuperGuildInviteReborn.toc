@@ -26,4 +26,4 @@ core\SuperScan.lua
 core\SGI_System_Message.lua
 core\SGI_Events.lua
 
-core\SGI_GUI.lua
+core\SGI_GUI.xml

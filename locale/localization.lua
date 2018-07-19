@@ -81,6 +81,7 @@ local English = setmetatable({}, {__index=defaultFunc})
 	English["Warrior"] = nil
 	English["Hunter"] = nil
 	English["Monk"] = nil
+	English["Demon Hunter"] = nil
 	
 	English["Human"] = nil
 	English["Gnome"] = nil
@@ -95,6 +96,14 @@ local English = setmetatable({}, {__index=defaultFunc})
 	English["Tauren"] = nil
 	English["BloodElf"] = nil
 	English["Goblin"] = nil
+	English["Nightborne"] = nil
+	English["VoidElf"] = nil
+	English["LightforgedDraenei"] = nil
+	English["HighmountainTauren"] = nil
+	English["Mag'harOrc"] = nil
+	English["Kul'TiranHuman"] = nil
+	English["ZandalariTroll"] = nil
+	English["DarkIronDwarf" = nil
 	
 	English["Author"] = "|cff00A2FF Written by Janniie - Stormreaver EU.|r"
 	
@@ -169,6 +178,7 @@ German = setmetatable({}, {__index=defaultFunc})
 	German["Warrior"] = "Krieger"
 	German["Hunter"] = "Jäger"
 	German["Monk"] = "Mönch"
+	German["Demon Hunter"] = "Dämonenjäger"
 	
 	German["Human"] = "Mensch"
 	German["Gnome"] = "Gnom"
@@ -252,6 +262,7 @@ local French = setmetatable({}, {__index=defaultFunc})
     French["Warrior"] = "Guerrier"
     French["Hunter"] = "Chasseur"
     French["Monk"] = "Moine"
+	French["Demon Hunter"] = "Chasseur de démons"
 
     French["Human"] = "Humain"
     French["Gnome"] = "Gnome"
