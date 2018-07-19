@@ -70,7 +70,7 @@ function SGI_EVENTS:ADDON_LOADED()
 	--Debugging, used for development
 	SGI:DebugState(SGI_DATA[SGI_DATA_INDEX].debug);
 	--Tell guildies what version you're running
-	SGI:BroadcastVersion("GUILD");
+	-- SGI:BroadcastVersion("GUILD"); legacy
 	--Request lock sync from guildies
 	SGI:RequestSync();
 	--Remove locks that are > 2 months old

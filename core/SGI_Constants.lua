@@ -13,7 +13,7 @@ SGI_MIN_LEVEL_SUPER_SCAN = 1;
 
 -- Version realted
 SGI.VERSION_MAJOR = "8.0";
-SGI.VERSION_MINOR = ".0";
+SGI.VERSION_MINOR = ".1";
 SGI.versionChanges = {
 	version = "Version |cff55EE55"..SGI.VERSION_MAJOR..SGI.VERSION_MINOR.."|r",
 	items = {
