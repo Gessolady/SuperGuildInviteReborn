@@ -103,7 +103,7 @@ local English = setmetatable({}, {__index=defaultFunc})
 	English["Mag'harOrc"] = nil
 	English["Kul'TiranHuman"] = nil
 	English["ZandalariTroll"] = nil
-	English["DarkIronDwarf" = nil
+	English["DarkIronDwarf"] = nil
 	
 	English["Author"] = "|cff00A2FF Written by Janniie - Stormreaver EU.|r"
 	
