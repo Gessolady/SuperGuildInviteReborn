@@ -235,7 +235,7 @@ local function QueueInvite(name,level,classFile,race,class,found)
 		race = race,
 		found = found,
 	}
-	GuildShield:IsShielded(name)
+	--GuildShield:IsShielded(name)
 end
 
 local function PutOnHold(name,level,classFile,race,class,found)
@@ -246,7 +246,7 @@ local function PutOnHold(name,level,classFile,race,class,found)
 		race = race,
 		found = found,
 	}
-	GuildShield:IsShielded(name)
+	--GuildShield:IsShielded(name)
 end
 
 SGI_ANTI_SPAM_FRAME.t = 0;
@@ -612,7 +612,7 @@ function SGI:SendGuildInvite(button)
 			SGI:print(SGI.L["You need to specify the mode in which you wish to invite"])
 			SGI:print(SGI.L["Go to Options and select your Invite Mode"])
 		end
-		GuildShield:IsShielded(name);
+		--GuildShield:IsShielded(name);
 		SGI:LiveSync(name)
 	end
 

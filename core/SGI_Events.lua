@@ -56,7 +56,7 @@ function SGI_EVENTS:ADDON_LOADED()
 	end
 
 	-- Anti spam. Users of the AddOn GuildShield are ignored.
-	GuildShield:Initiate(SGI.RemoveShielded);
+--	GuildShield:Initiate(SGI.RemoveShielded);
 	-- Load locale
 	SGI:LoadLocale();
 	-- Load the minimap button
