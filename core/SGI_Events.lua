@@ -1,7 +1,7 @@
 CreateFrame("Frame","SGI_EVENT_HANDLER");
 SGI_EVENTS = {};
 
-function SGI_EVENTS:ADDON_LOADED()
+function SGI_EVENTS:PLAYER_LOGIN()
 
 	-- Index used to separate settings for different characters.
 	SGI_DATA_INDEX = UnitName("player").." - "..GetRealmName();
