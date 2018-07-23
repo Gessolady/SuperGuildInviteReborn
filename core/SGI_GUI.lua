@@ -275,7 +275,8 @@ function SGI:CreateSmallSuperScanFrame()
 
 	SuperScanFrame.time = SuperScanFrame:CreateFontString(nil,"OVERLAY","GameFontNormal")
 	SuperScanFrame.time:SetPoint("CENTER")
-	SuperScanFrame.time:SetText(format("|cff00ff00%d%%|r|cffffff00 %s|r",0,SGI:GetSuperScanETR()))
+	-- commented out this line to see if it fixes progress bar thanks rodhansen
+	--SuperScanFrame.time:SetText(format("|cff00ff00%d%%|r|cffffff00 %s|r",0,SGI:GetSuperScanETR()))
 
 	SuperScanFrame.progressTexture = SuperScanFrame:CreateTexture();
 	SuperScanFrame.progressTexture:SetPoint("LEFT", 5, 0);
@@ -290,7 +291,7 @@ function SGI:CreateSmallSuperScanFrame()
 		yOfs = 0,
 	}
 
-	SuperScanFrame.button1 = CreateButton("SGI_INVITE_BUTTON2", SuperScanFrame, 70, 30, format("Invite: %d",SGI:GetNumQueued()), anchor, SGI.SendGuildInvite)
+	SuperScanFrame.button1 = CreateButton("SGI_INVITE_BUTTON2", SuperScanFrame, 70, 30, format("",SGI:GetNumQueued()), anchor, SGI.SendGuildInvite)
 		anchor.xOfs = 85;
 	SuperScanFrame.button2 = CreateButton("SGI_PURGE_QUEUE", SuperScanFrame, 55, 30, "Purge", anchor, SGI.PurgeQueue);
 		anchor.xOfs = 57;
